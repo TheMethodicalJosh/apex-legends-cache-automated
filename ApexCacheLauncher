@@ -1,0 +1,37 @@
+#!/bin/sh
+
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )"; ## Give directory of script for variable
+
+wget https://github.com/bcook254/apex-legends-cache/raw/main/r5apex.dxvk-cache -P "$SCRIPT_DIR" -O r5apex.new.dxvk-cache ## Download new cache file
+
+if [ ! -f "$SCRIPT_DIR"/dxvk-cache-tool ]
+then
+    echo "|-------------------------------------|"
+    echo "|Merger tool not found. Downloading...|"
+    echo "|-------------------------------------|"
+    wget https://github.com/DarkTigrus/dxvk-cache-tool/releases/download/v1.1.2/dxvk-cache-tool -P "$SCRIPT_DIR" -O dxvk-cache-tool ## Download dxvk-cache-tool
+    chmod +x "$SCRIPT_DIR"/dxvk-cache-tool
+else
+    echo "|-------------------------------------------|"
+    echo "|Merger tool found. Not downloading again...|"
+    echo "|-------------------------------------------|"
+fi
+
+if [ ! -f "$SCRIPT_DIR"/r5apex.dxvk-cache ]
+then
+    echo "|------------------------------------|"
+    echo "|Cache file does not exist. Adding...|"
+    echo "|------------------------------------|"
+    mv "$SCRIPT_DIR"/r5apex.new.dxvk-cache "$SCRIPT_DIR"/r5apex.dxvk-cache ## Rename "Add" cache file.
+else
+    echo "|----------------------------|"
+    echo "|Cache file found. Merging...|"
+    echo "|----------------------------|"
+    mv "$SCRIPT_DIR"/r5apex.dxvk-cache r5apex.old.dxvk-cache ## Rename Old Cache File
+    "$SCRIPT_DIR"/dxvk-cache-tool r5apex.new.dxvk-cache r5apex.old.dxvk-cache -o r5apex.dxvk-cache ## Merge cache files
+    rm "$SCRIPT_DIR"/r5apex.new.dxvk-cache "$SCRIPT_DIR"/r5apex.old.dxvk-cache ## Remove old cache files
+fi
+
+
+
+steam steam://rungameid/1172470
