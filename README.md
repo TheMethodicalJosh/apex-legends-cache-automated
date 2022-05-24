@@ -24,7 +24,7 @@ The Software and code samples available on this website are provided "as is" wit
 
 The use of the software and scripts downloaded on this site is done at your own discretion and risk and with agreement that you will be solely responsible for any damage to your computer system or loss of data that results from such activities. You are solely responsible for adequate protection and backup of the data and equipment used in connection with any of the software, and we will not be liable for any damages that you may suffer in connection with using, modifying or distributing any of this software. No advice or information, whether oral or written, obtained by you from us or from this website shall create any warranty for the software.
 
-**We make makes no warranty that:**
+**We make no warranty that:**
 
 -   the software will meet your requirements
 -   the software will be uninterrupted, timely, secure or error-free
