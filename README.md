@@ -12,7 +12,7 @@ Simple Apex Legends Cache Downloader / Merger Script
 you play and it will always have the latest version of the
 "r5apex.dxvk-cache" file merged from https://github.com/bcook254/apex-legends-cache using the "dxvk-cache-tool" from https://github.com/DarkTigrus/dxvk-cache-tool.
 
- **4.** Doctor up the non-steam script by downloading and adding an Apex
+ **4.** Spice up the non-steam script by downloading and adding an Apex
 Legends icon to it, and changing to a more appealing name via the Steam
 Game "Properties" menu.
 
