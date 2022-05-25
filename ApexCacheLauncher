@@ -1,23 +1,40 @@
-#!/bin/sh
+#!/bin/bash
 
-SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )"; ## Give directory of script for variable
+echo "Finding a directory for suggestion.. This may take a few moments."$'\n'
+CACHE_DIR="$(find / -type d -path "*steamapps/shadercache/1172470/DXVK_state_cache" -print 2>/dev/null)"
+SCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";
+SCRIPT_NAME=`basename "$0"`
 
+if [ ! -f "$CACHE_DIR"/"$SCRIPT_NAME" ] && [ ! -f "$SCRIPT_DIR"/r5apex.dxvk-cache ]
+then
+while true; do ## Ask if user would like to move this script to the suggested location.
+    read -p "Do you wish to move this script to the suggested directory '$CACHE_DIR'? Y - Automatic, N - Manual (Y/n) " yn
+    case $yn in
+        [Yy]* ) mv "$SCRIPT_DIR"/"$SCRIPT_NAME" "$CACHE_DIR"/"$SCRIPT_NAME"; echo $'\n'"Script has been moved to '"$CACHE_DIR"/"$SCRIPT_NAME"'. Add this script from the given path as a non-steam game to use as your launcher."; exit;;
+        [Nn]* ) wget -q https://github.com/bcook254/apex-legends-cache/raw/main/r5apex.dxvk-cache -P "$SCRIPT_DIR" -O r5apex.dxvk-cache;echo $'\n'"Please move this script and the newly downloaded 'r5apex.dxvk-cache' file manually into the proper directory."; exit;;
+        * ) echo "Please answer y for yes or n for no. Press Ctrl+C to exit..";;
+    esac
+done
+else
+
+if [[ "$SCRIPT_DIR" = */DXVK_state_cache ]] ## Check if directory is a proper directory
+then
 wget https://github.com/bcook254/apex-legends-cache/raw/main/r5apex.dxvk-cache -P "$SCRIPT_DIR" -O r5apex.new.dxvk-cache ## Download new cache file
 
-if [ ! -f "$SCRIPT_DIR"/dxvk-cache-tool ]
+if [ ! -f "$SCRIPT_DIR"/dxvk-cache-tool ] ## Check if the cache tool is installed
 then
     echo "|-------------------------------------|"
     echo "|Merger tool not found. Downloading...|"
     echo "|-------------------------------------|"
     wget https://github.com/DarkTigrus/dxvk-cache-tool/releases/download/v1.1.2/dxvk-cache-tool -P "$SCRIPT_DIR" -O dxvk-cache-tool ## Download dxvk-cache-tool
-    chmod +x "$SCRIPT_DIR"/dxvk-cache-tool
+    chmod +x "$SCRIPT_DIR"/dxvk-cache-tool ## Make dxvk-cache-tool executable
 else
     echo "|-------------------------------------------|"
     echo "|Merger tool found. Not downloading again...|"
     echo "|-------------------------------------------|"
 fi
 
-if [ ! -f "$SCRIPT_DIR"/r5apex.dxvk-cache ]
+if [ ! -f "$SCRIPT_DIR"/r5apex.dxvk-cache ] ## Check if a cache exists
 then
     echo "|------------------------------------|"
     echo "|Cache file does not exist. Adding...|"
@@ -32,6 +49,8 @@ else
     rm "$SCRIPT_DIR"/r5apex.new.dxvk-cache "$SCRIPT_DIR"/r5apex.old.dxvk-cache ## Remove old cache files
 fi
 
-
-
-steam steam://rungameid/1172470
+steam steam://rungameid/1172470 ## Launch Apex Legends via Steam
+else
+echo $'\n'"You did not install the tool in the proper directory. Please move the script and cache file into the proper directory. The suggested directory is '$CACHE_DIR'" ## Warn user to move the files manually to the proper location.
+fi
+fi
