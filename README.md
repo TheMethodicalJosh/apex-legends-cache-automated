@@ -15,6 +15,11 @@ Simple Apex Legends Cache Downloader / Merger Script
   **5.** Once the script moves itself, it will tell you again the directory you need. Add the script as a non-steam game using the final directory it gives you.
 
  **6.** You now launch from this script each time you play to keep your cache file updated. Spice up the look of your non-steam game if you'd like. Add a logo, or a banner, change the name in steam. Happy hunting!
+ 
+Sources
+---
+https://github.com/bcook254/apex-legends-cache - Cache File Maintainer
+https://github.com/DarkTigrus/dxvk-cache-tool - DXVK Merge Tool Maintainer
 
 Software Disclaimer
 ---
