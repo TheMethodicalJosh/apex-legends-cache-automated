@@ -1,6 +1,6 @@
 
 
-Simple Apex Legends Cache Downloader / Merger Script
+Simple Apex Legends Cache Downloader / Launcher Script
 ---
 **To use this script, follow the instruction below:**
 
