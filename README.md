@@ -19,6 +19,7 @@ Simple Apex Legends Cache Downloader / Merger Script
 Sources
 ---
 https://github.com/bcook254/apex-legends-cache - Cache File Maintainer
+
 https://github.com/DarkTigrus/dxvk-cache-tool - DXVK Merge Tool Maintainer
 
 Software Disclaimer
