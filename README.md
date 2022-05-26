@@ -1,20 +1,20 @@
 
+
 Simple Apex Legends Cache Downloader / Merger Script
--------------------------------------------
+---
 **To use this script, follow the instruction below:**
 
- **1.** Download and move the "ApexCacheLauncher" script into the same directory as you would your "r5apex.dxvk-cache" file, which will be the location similar to `/path/to/steamapps/shadercache/1172470/DXVK_state_cache/r5apex.dxvk-cache` (Yours may vary, You'll have to find it.)
+ **1.** Download the script as a ZIP and extract it into the folder of your choice or clone the repository.
 
- **2.** In Steam, add this script as a non-steam game via the "Games" tab in steam. Again, this will be in the directory of your "r5apex.dxvk-cache" file, which will be the location similar to
-`/path/to/steamapps/shadercache/1172470/DXVK_state_cache/r5apex.dxvk-cache` (Yours may vary, You'll have to find it.)
+ **2.** Make sure to set the script as executable. `chmod +x ApexCacheLauncher`
 
- **3.** You're done. Use this added script to launch Apex Legends each time
-you play and it will always have the latest version of the
-"r5apex.dxvk-cache" file merged from https://github.com/bcook254/apex-legends-cache using the "dxvk-cache-tool" from https://github.com/DarkTigrus/dxvk-cache-tool.
+ **3.** Execute the script. `./ApexCacheLauncher`
 
- **4.** Spice up the non-steam script by downloading and adding an Apex
-Legends icon to it, and changing to a more appealing name via the Steam
-Game "Properties" menu.
+ **4.** The script will suggest a directory to move the script to. **You may do this manually as long as it is installed in the `DXVK_state_cache` directory.**
+
+  **5.** Once the script moves itself, it will tell you again the directory you need. Add the script as a non-steam game using the final directory it gives you.
+
+ **6.** You now launch from this script each time you play to keep your cache file updated. Spice up the look of your non-steam game if you'd like. Add a logo, or a banner, change the name in steam. Happy hunting!
 
 Software Disclaimer
 ---
@@ -39,5 +39,5 @@ The use of the software and scripts downloaded on this site is done at your own 
 
 We assume no responsibility for errors or omissions in the software or documentation available from its web site.
 
-In no event shall we be liable to you or any third parties for any special, punitive, incidental, indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation, those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in connection with the use of this software.
+**In no event shall we be liable to you or any third parties for any special, punitive, incidental, indirect or consequential damages of any kind, or any damages whatsoever, including, without limitation, those resulting from loss of use, data or profits, and on any theory of liability, arising out of or in connection with the use of this software.**
 <hr/>
