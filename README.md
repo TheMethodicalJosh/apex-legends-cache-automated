@@ -4,7 +4,7 @@ Simple Apex Legends Cache Downloader / Merger Script
 ---
 **To use this script, follow the instruction below:**
 
- **1.** Download the script as a ZIP and extract it into the folder of your choice or clone the repository.
+ **1.** Download the script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
 
  **2.** Make sure to set the script as executable. `chmod +x ApexCacheLauncher`
 
