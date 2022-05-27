@@ -1,26 +1,60 @@
 
-
-Simple Apex Legends Cache Downloader / Launcher Script
+What is this?
 ---
-**To use this script, follow the instruction below:**
+Apex Legends on Linux.. Oh.. what a great thing. The only issue? Steam doesn't provide a DXVK cache file that is needed for a smooth lagless jitterless experience like most other games. So.. How do we fix this? We make our own, maintain it, and continue to distribute and download it each update.
 
- **1.** Download the script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
+Each of these scripts will do that for you.
+
+The **ApexCacheLauncher** will do exactly the same as the **ApexCacheDownloader** script, except you can run it as a "Steam Launch Option" and it will automate the process of downloading and merging each time you launch Apex Legends.
+
+However, if you prefer do it manually without launching the game after, the **ApexCacheDownloader** script will do that for you.
+
+***Please read carefully below to ensure that this process works for you.***
+
+Simple Apex Legends Cache Launcher & Downloader Scripts
+---
+**To use the launcher script only, follow the instruction below:**
+
+ **1.** Download the latest script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
 
  **2.** Make sure to set the script as executable. `chmod +x ApexCacheLauncher`
 
  **3.** Execute the script. `./ApexCacheLauncher`
 
- **4.** The script will suggest a directory to move the script to. **You may do this manually as long as it is installed in the `DXVK_state_cache` directory.**
+ **4.** The script will suggest a directory to set as your DXVK State Cache directory. Select **Y** for Preferred, **N** for manual entry. **It will ask if you want to set this manually if you'd like but the full path must contain a `DXVK_state_cache` directory.**
 
-  **5.** Once the script moves itself, it will tell you again the directory you need. Add the script as a non-steam game using the final directory it gives you.
+  **5.** Once you set the cache directory, it will tell you what you need to add to your Steam Apex Legends Launch Options.
 
- **6.** You now launch from this script each time you play to keep your cache file updated. Spice up the look of your non-steam game if you'd like. Add a logo, or a banner, change the name in steam. Happy hunting!
+ **6.** Launch Apex Legends as normal, It should now update and merge your cache each time you launch.
+
+---
+**To use the downloader script only, follow the instruction below:**
+
+ **1.** Download the latest script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
+
+ **2.** Make sure to set the script as executable. `chmod +x ApexCacheDownloader`
+
+ **3.** Execute the script. `./ApexCacheDownloader`
+
+ **4.** The script will suggest a directory to set as your DXVK State Cache directory. Select **Y** for Preferred, **N** for manual entry. **It will ask if you want to set this manually if you'd like but the full path must contain a `DXVK_state_cache` directory.**
+
+  **5.** Once you set the cache directory, it will exit. Run the script again to begin the Download/Merge process.
+
+ **6.** Once merged, it will ask you if you want to launch Apex Legends via the script. **Y** for Yes, **N** for No.
  
 Sources
 ---
 https://github.com/bcook254/apex-legends-cache - Cache File Maintainer
 
 https://github.com/DarkTigrus/dxvk-cache-tool - DXVK Merge Tool Maintainer
+
+Special Thanks
+---
+[u/ryao](https://www.reddit.com/r/linux_gaming/comments/t5xrho/dxvk_state_cache_for_fixing_stutter_in_apex/) - For starting this rabbit hole of creating a permanent solution via a Reddit Thread.
+
+[u/bcook254](https://www.reddit.com/r/linux_gaming/comments/umuo6o/apex_legends_dxvk_cache_file_git_repo/) - For starting and maintaining the cache on GitHub from which this script uses.
+
+[u/ThePhxRises](https://github.com/ThePhxRises) - Figuring out why it wouldn't launch via "Steam Launch Options" and giving a few more ideas.
 
 Software Disclaimer
 ---

@@ -16,7 +16,7 @@ if [ ! -f .location ]; then
             echo "$CACHE_FIND" >"$SCRIPT_DIR"/.location
             echo ""
             echo "To change this, delete or edit the hidden .location file located at '$(readlink -f .location)'."$'\n'
-            echo "Add this to your Apex Legends launch options: $SCRIPT_DIR/$SCRIPT_NAME; %command%"
+            echo "Run this script again to Add/Update Cache."
             exit
             ;;
         [Nn]*)
@@ -28,8 +28,7 @@ if [ ! -f .location ]; then
             echo ""
             echo "Path set as: '$ALCPATH'"$'\n'
             echo "To change this, delete or edit the hidden .location file located at '$(readlink -f .location)'."$'\n'
-            echo "Add this to your Apex Legends launch options: $SCRIPT_DIR/$SCRIPT_NAME; %command%"
-            sleep 5
+            echo "Run this script again to Add/Update Cache."
             exit
             ;;
         *) echo "Please answer Y|y for yes or N|n for no. Press Ctrl+C to exit.." ;;
@@ -65,8 +64,21 @@ else
         fi
 
         echo "Apex Legends cache has merged."
+        while true; do
+            read -p "Would you like to launch Apex Legends? (Yy/Nn)" yn ## Ask user if they want to launch Apex Legends
+            case $yn in
+            [Yy]*)
+                nohup steam steam://rungameid/1172470 &>/dev/null & ## Launch Apex Legends via Steam
+                exit
+                ;;
+            [Nn]*)
+                exit
+                ;;
+            *) echo "Please answer Y|y for yes or N|n for no." ;; ## Must have answer.
+            esac
+        done
     else
-        echo "You did not supply a full path with a 'DXVK_state_cache' directory. Please delete/edit the hidden .location file located at '$(readlink -f .location)' and try again." ## Warn user to edit the hidden .location variable file to the proper location.
+        echo "You did not supply a full path with a 'DXVK_state_cache' directory. Please delete/edit the hidden .location file and try again." ## Warn user to edit the hidden .location variable file to the proper location.
         exit
     fi
 fi
