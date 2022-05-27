@@ -17,7 +17,7 @@ if [ ! -f "$LOCATIONFILEDIR"/location ]; then
             echo "$CACHE_FIND" >"$LOCATIONFILEDIR"/location
             echo ""
             echo "To change this, delete or edit the 'location' file located at '"$LOCATIONFILEDIR"/location'."$'\n'
-            echo "Copy this exactly and add to your Apex Legends launch options: \"$SCRIPT_DIR/$SCRIPT_NAME\"; %command%"
+            echo "This script will now exit. Run again to start the download/merge process."
             exit
             ;;
         [Nn]*)
