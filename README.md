@@ -1,5 +1,15 @@
 
+What is this?
+---
+Apex Legends on Linux.. Oh.. what a great thing. The only issue? Steam doesn't provide a DXVK cache file that is needed for a smooth lagless jitterless experience like most other games. So.. How do we fix this? We make our own, maintain it, and continue to distribute and download it each update.
 
+Each of these scripts will do that for you.
+
+The **ApexCacheLauncher** will do exactly the same as the **ApexCacheDownloader** script, except you can run it as a "Steam Launch Option" and it will automate the process of downloading and merging each time you launch Apex Legends.
+
+However, if you prefer do it manually without launching the game after, the **ApexCacheDownloader** script will do that for you.
+
+***Please read carefully below to ensure that this process works for you.***
 
 Simple Apex Legends Cache Launcher & Downloader Scripts
 ---
