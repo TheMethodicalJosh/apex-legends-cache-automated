@@ -2,39 +2,41 @@
 
 SCRIPT_NAME=$(basename "$0")
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" &>/dev/null && pwd 2>/dev/null)"
-{ CACHE_DIR=$(<"$SCRIPT_DIR"/.location); } 2>/dev/null
-LOCATIONFILE=$(readlink -f .location)
+LOCATIONFILEDIR=~/.config/apexcachelauncher
 
-if [ ! -f .location ]; then
+{ CACHE_DIR=$(<"$LOCATIONFILEDIR"/location); } 2>/dev/null
+
+if [ ! -f "$LOCATIONFILEDIR"/location ]; then
     echo "Finding a directory for suggestion.. This may take a few moments."$'\n'
     CACHE_FIND="$(find / -type d -path "*steamapps/shadercache/1172470/DXVK_state_cache" -print 2>/dev/null)"
     while true; do
         read -p "Do you wish to use the suggested directory as your Apex Legend cache directory? '$CACHE_FIND' Y/y - Suggested, N/n - Manual | " yn ## Try to provide accurate directory of cache file.
         case $yn in
         [Yy]*)
-            touch .location
-            echo "$CACHE_FIND" >"$SCRIPT_DIR"/.location
+            mkdir -p "$LOCATIONFILEDIR"
+            echo "$CACHE_FIND" >"$LOCATIONFILEDIR"/location
             echo ""
-            echo "To change this, delete or edit the hidden .location file located at '$(readlink -f .location)'."$'\n'
-            echo "Run this script again to Add/Update Cache."
+            echo "To change this, delete or edit the 'location' file located at '"$LOCATIONFILEDIR"/location'."$'\n'
+            echo "Copy this exactly and add to your Apex Legends launch options: \"$SCRIPT_DIR/$SCRIPT_NAME\"; %command%"
             exit
             ;;
         [Nn]*)
             echo "This script will only work if the full path ends with 'DXVK_state_cache' as the final directory."$'\n'
             echo "Enter your full path for the cache directory:"
             read ALCPATH
-            touch .location
-            echo "$ALCPATH" >"$SCRIPT_DIR"/.location
+            mkdir -p "$LOCATIONFILEDIR"
+            echo "$ALCPATH" >"$LOCATIONFILEDIR"/location
             echo ""
             echo "Path set as: '$ALCPATH'"$'\n'
-            echo "To change this, delete or edit the hidden .location file located at '$(readlink -f .location)'."$'\n'
-            echo "Run this script again to Add/Update Cache."
+            echo "To change this, delete or edit the 'location' file located at '"$LOCATIONFILEDIR"/location'."$'\n'
+            echo "Copy this exactly and add to your Apex Legends launch options: \"$SCRIPT_DIR/$SCRIPT_NAME\"; %command%"
+            sleep 5
             exit
             ;;
         *) echo "Please answer Y|y for yes or N|n for no. Press Ctrl+C to exit.." ;;
         esac
     done
-    { CACHE_DIR=$(<"$SCRIPT_DIR"/.location); } 2>/dev/null
+    { CACHE_DIR=$(<"$LOCATIONFILEDIR"/location); } 2>/dev/null
 else
 
     if [[ "$CACHE_DIR" = */DXVK_state_cache ]]; then
@@ -78,7 +80,7 @@ else
             esac
         done
     else
-        echo "You did not supply a full path with a 'DXVK_state_cache' directory. Please delete/edit the hidden .location file and try again." ## Warn user to edit the hidden .location variable file to the proper location.
+        echo "You did not supply a full path with a 'DXVK_state_cache' directory. Please delete/edit the 'location' file located at '"$LOCATIONFILEDIR"/location' and try again." ## Warn user to edit the location variable file and change to the proper location.
         exit
     fi
 fi
