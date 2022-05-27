@@ -1,9 +1,9 @@
 
 
 
-Simple Apex Legends Cache Downloader / Launcher Script
+Simple Apex Legends Cache Launcher & Downloader Scripts
 ---
-**To use the launcher script, follow the instruction below:**
+**To use the launcher script only, follow the instruction below:**
 
  **1.** Download the latest script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
 
@@ -18,7 +18,7 @@ Simple Apex Legends Cache Downloader / Launcher Script
  **6.** Launch Apex Legends as normal, It should now update and merge your cache each time you launch.
 
 ---
-**To use the downloader script, follow the instruction below:**
+**To use the downloader script only, follow the instruction below:**
 
  **1.** Download the latest script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
 
