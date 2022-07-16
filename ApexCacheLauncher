@@ -41,7 +41,15 @@ else
 
     if [[ "$CACHE_DIR" = */DXVK_state_cache ]]; then
 
-        wget https://github.com/bcook254/apex-legends-cache/raw/main/r5apex.dxvk-cache -O "$CACHE_DIR"/r5apex.new.dxvk-cache ## Download new cache file
+        NEW_CACHE="$CACHE_DIR"/r5apex.new.dxvk-cache
+
+        ## Download new cache file but only if it was updated
+        curl -L https://github.com/bcook254/apex-legends-cache/raw/main/r5apex.dxvk-cache -o $NEW_CACHE --etag-save $NEW_CACHE.etag --etag-compare $NEW_CACHE.etag
+
+        if [ ! -f $NEW_CACHE ] && [ -f $NEW_CACHE.etag ]; then
+            echo "No new state cache changes found"
+            exit
+        fi
 
         if [ ! -f "$CACHE_DIR"/dxvk-cache-tool ]; then ## Check if the cache tool is installed
 
@@ -55,13 +63,13 @@ else
 
         if [ ! -f "$CACHE_DIR"/r5apex.dxvk-cache ]; then ## Check if a cache exists
             echo "Cache file does not exist. Adding..."
-            mv "$CACHE_DIR"/r5apex.new.dxvk-cache "$CACHE_DIR"/r5apex.dxvk-cache ## Rename "Add" cache file.
+            mv $NEW_CACHE "$CACHE_DIR"/r5apex.dxvk-cache ## Rename "Add" cache file.
             notify-send "Installed Apex Legends DXVK State Cache" "DXVK Cache was not found, installed from GitHub."
         else
             echo "Cache file found. Merging..."
             mv "$CACHE_DIR"/r5apex.dxvk-cache "$CACHE_DIR"/r5apex.old.dxvk-cache                                                                 ## Rename Old Cache File
-            "$CACHE_DIR"/dxvk-cache-tool "$CACHE_DIR"/r5apex.new.dxvk-cache "$CACHE_DIR"/r5apex.old.dxvk-cache -o "$CACHE_DIR"/r5apex.dxvk-cache ## Merge cache files
-            rm "$CACHE_DIR"/r5apex.new.dxvk-cache "$CACHE_DIR"/r5apex.old.dxvk-cache                                                             ## Remove old cache files
+            "$CACHE_DIR"/dxvk-cache-tool $NEW_CACHE "$CACHE_DIR"/r5apex.old.dxvk-cache -o "$CACHE_DIR"/r5apex.dxvk-cache ## Merge cache files
+            rm $NEW_CACHE "$CACHE_DIR"/r5apex.old.dxvk-cache                                                             ## Remove old cache files
             notify-send "Merged Apex Legends DXVK State Cache" "Downloaded and Merged DXVK Cache."
         fi
 

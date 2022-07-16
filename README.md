@@ -15,7 +15,7 @@ Simple Apex Legends Cache Launcher & Downloader Scripts
 ---
 **To use the launcher script only, follow the instruction below:**
 
- **1.** Download the latest script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
+ **1.** Download the latest script as a [ZIP/TAR.GZ](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
 
  **2.** Make sure to set the script as executable. `chmod +x ApexCacheLauncher`
 
@@ -23,14 +23,14 @@ Simple Apex Legends Cache Launcher & Downloader Scripts
 
  **4.** The script will suggest a directory to set as your DXVK State Cache directory. Select **Y** for Preferred, **N** for manual entry. **It will ask if you want to set this manually if you'd like but the full path must contain a `DXVK_state_cache` directory.**
 
-  **5.** Once you set the cache directory, it will tell you what you need to add to your Steam Apex Legends Launch Options.
+  **5.** Once you set the cache directory, **it will tell you what you need to add to your Steam Apex Legends Launch Options.** *You may add other options in succession to one another like the following gamemode example: `"/path/of/script/ApexCacheLauncher"; gamemoderun %command%`*
 
  **6.** Launch Apex Legends as normal, It should now update and merge your cache each time you launch.
 
 ---
 **To use the downloader script only, follow the instruction below:**
 
- **1.** Download the latest script as a [ZIP](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
+ **1.** Download the latest script as a [ZIP/TAR.GZ](https://github.com/TheMethodicalJosh/apex-legends-cache-automated/releases) and extract it into the folder of your choice or clone the repository.
 
  **2.** Make sure to set the script as executable. `chmod +x ApexCacheDownloader`
 
