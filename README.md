@@ -1,3 +1,6 @@
+## ⚠️ Deprecation Notice
+
+Since the release of DXVK 2.0, the Nvidia 525 driver, and the work done in Mesa on the GPL, the necessity of state cache file has been almost entirely eliminated. As a result of this change, this script is no longer needed. Thank you all for trusting in my script to give you a better fluid experience of Apex Legends on your Linux machine. Together, we will slátra our enemies.
 
 What is this?
 ---
